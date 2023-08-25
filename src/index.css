@@ -1,0 +1,19 @@
+
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+ 
+:root {
+    --black: #121212;
+    --dark: #333333;
+    --light: #828282;
+    --emphasis:#EC5757;
+    --white: #FFFFFF;
+  }
+
+*{
+    margin: 0;
+    font-family:'SF Pro Display', Times, serif, sans-serif; 
+}
+
+html {
+  font-size: 62.5%; /*Reset: 1 rem is equal to 10px*/
+ }

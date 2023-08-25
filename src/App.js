@@ -1,6 +1,11 @@
+import Layout from "./containers/Layout";
+import Header from "./containers/Header";
+
 function App() {
   return (
-    <div></div> 
+    <Layout>
+      <Header/>
+    </Layout>
   );
 }
 
