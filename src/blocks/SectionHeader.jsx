@@ -8,21 +8,21 @@ const TitleContainer = styled.div`
 const SubtitleContainer = styled.div`
     padding: 3.2rem 1.6rem  0.8rem;
 `
-export const TitleHeader = () => {
+export const TitleHeader = ({title}) => {
     return ( 
       <TitleContainer>
             <Title>
-                People of Star Wars
+                {title}
             </Title>
       </TitleContainer>
     );
 };
 
-export const SectionHeader = () => {
+export const SectionHeader = ({subtitle}) => {
     return ( 
       <SubtitleContainer>
             <SubtitleDefault>
-                General Information
+                {subtitle}
             </SubtitleDefault>
       </SubtitleContainer>
     );

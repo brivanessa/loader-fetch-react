@@ -17,17 +17,17 @@ const DataCellContainer = styled.div`
         align-items: flex-end;
     }
 `
-export const DataCell = () => {
+export const DataCell = ({characteristic, value})  => {
     return ( 
       <DataCellContainer>
             <div>
                 <SubtitleLowEmphasis>
-                    Eye Color
+                    {characteristic}
                 </SubtitleLowEmphasis>
             </div>
             <div >
                 <SubtitleDefault>
-                    Blue
+                    {value}
                 </SubtitleDefault>
             </div>
       </DataCellContainer>

@@ -93,7 +93,7 @@ color: var(--black);
 export const Loader = () => {
     return ( 
       <StyledLoader>
-           <div class="lds-spinner">
+           <div className="lds-spinner">
                 <div></div>
                 <div></div>
                 <div></div>

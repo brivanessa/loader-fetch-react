@@ -6,7 +6,7 @@ const Header = ({ className }) => {
     return ( 
       <header className={className}>
         <IconBack/>
-        <TitleHeader/>
+        <TitleHeader title={"People of StarWars"}/>
       </header>
     );
 };

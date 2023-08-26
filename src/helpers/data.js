@@ -11,10 +11,15 @@ export function peopleAll(datos) {
   }
   
   //FILTROS
-  export function filterDataName(data, condition) {
-    return data.filter ((item) => (item.name === condition));
+  export function filterDataName(data, name) {
+    return (data.filter ((item) => (item.name === name)))[0];
   }
 
   export function filterDataGender(data, condition) {
     return data.filter ((item) => (item.gender === condition));
+  }
+
+  export function filterVehiculesDataName(data, name) {
+    return (data.filter ((item) => (item.name === name)))[0].vehicles;
+   
   }
