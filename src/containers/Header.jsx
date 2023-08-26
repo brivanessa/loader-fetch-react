@@ -1,14 +1,25 @@
 import { styled } from "styled-components"
 import { IconBack } from "../assets/Icons"
 import { TitleHeader} from "../blocks/SectionHeader"
+import { DataCellsContext } from "../contexts/DataCellsContext";
+import { useContext } from "react";
 
 const Header = ({ className }) => {
-    return ( 
-      <header className={className}>
-        <IconBack/>
-        <TitleHeader title={"People of StarWars"}/>
-      </header>
-    );
+  let { user, setUser } = useContext( DataCellsContext );
+   return (!user||user==="")
+    ? ( 
+        <header className={className}>        
+                  <TitleHeader title={"People"}/>
+        </header>
+      )
+    : ( 
+        <header className={className}>
+                  <div onClick={ (e) =>{ return setUser("")}}>
+                    <IconBack />           
+                  </div>          
+                  <TitleHeader title={user}/>
+        </header>
+      )  
 };
 
 

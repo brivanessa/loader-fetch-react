@@ -53,7 +53,7 @@ export const DataCellsProvider = ({ children }) => {
         setDataCells(filterData);
         setDataVehiculesCells(filterVehicules);
         setPersonCells(allPeople);
-   },[user]);
+   },[user, setUser]);
 
     return (
         <DataCellsContext.Provider
