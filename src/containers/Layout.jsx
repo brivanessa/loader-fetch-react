@@ -11,4 +11,6 @@ const Layout = ({ children, className }) => {
 export default styled(Layout)`
     background-color: var(--white);
     height: 100vh;
+    display: flex;
+    flex-direction: column;  
 `;
