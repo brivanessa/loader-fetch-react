@@ -21,15 +21,15 @@ const PersonCellContainer = styled.div`
         align-items: center
     }
 `
-export const PersonCell = () => {
+export const PersonCell = ({name, gender}) => {
     return ( 
       <PersonCellContainer>
-            <div >
+            <div>
                 <SubtitleDefault>
-                    Luke Skywalker
+                    {name}
                 </SubtitleDefault>
                 <TextLowEmphasis>
-                    Human from Tatooine
+                    {gender}
                 </TextLowEmphasis>
             </div>
             <div>
