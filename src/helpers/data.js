@@ -23,3 +23,14 @@ export function peopleAll(datos) {
     return (data.filter ((item) => (item.name === name)))[0].vehicles;
    
   }
+
+  export function filterDataByName(data, name, vehicles) {
+    if(name===""){
+      return [];
+    }if(name!=="" && vehicles===undefined){
+      return (data.filter ((item) => (item.name === name)))[0];
+    } else {
+      return (data.filter ((item) => (item.name === name)))[0].vehicles;
+    }
+    
+  }

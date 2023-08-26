@@ -33,7 +33,7 @@ export const PersonCell = ({name, gender}) => {
                 </TextLowEmphasis>
             </div>
             <div>
-            < IconDetails/>
+            < IconDetails />
             </div>
       </PersonCellContainer>
     );

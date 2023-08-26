@@ -1,29 +1,18 @@
-import { useEffect, useState } from "react";
-import mockApi from "../helpers/mockApi.js";
+import { useContext } from "react";
+import { DataCellsContext } from "../contexts/DataCellsContext";
 import { PersonCell } from "../blocks/PersonCell";
-import {
-    peopleAll,
-    filterDataName,
-    filterDataGender
-  }  from "../helpers/data.js";
-
-  const data = mockApi.results;
-  const allPeople = peopleAll(data);
 
  export const PersonCells = ({}) => {
-    let [personCells, setPersonCells] = useState([]);
-    useEffect(()=> {
-        // Hacer fetch
-        // Actualizar la data
-         setPersonCells(allPeople);
-        //   setPersonCells(allPeople)
-    },[]);
+    let { personCells, setUser } = useContext( DataCellsContext );
 
     return (
-        <div>
+        <div >
             { personCells.map (
                 (data) =>
-                     <div key={data.name}>
+                     <div key={data.name} onClick={ (e) =>{
+                        const username = data.name;
+                        return setUser(username)
+                     }} >
                          <PersonCell name={data.name} gender={data.gender}/>
                      </div> 
                     )
