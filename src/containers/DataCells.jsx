@@ -1,27 +1,13 @@
-import { useEffect, useState } from "react";
-import mockApi from "../helpers/mockApi.js";
+import { useContext, useEffect, useState } from "react";
+import { DataCellsContext } from "../contexts/DataCellsContext";
 import { DataCell } from "../blocks/DataCell";
 import { SectionHeader } from "../blocks/SectionHeader";
 
-import {
-    peopleAll,
-    filterDataName,
-    filterVehiculesDataName,
-  }  from "../helpers/data.js";
-
-  const data = mockApi.results;
-  const allPeople = peopleAll(data);
-  const filterData = filterDataName(allPeople, "Luke Skywalker" )
-  const filterVehicules = filterVehiculesDataName(allPeople, "Luke Skywalker" )
-
  export const DataCells = () => {
-    const [dataCells, setDataCells] = useState([]);
-    const [dataVehiculesCells, setVehiculesDataCells] = useState([]);
 
-    useEffect(()=> {
-        setDataCells(filterData);
-        setVehiculesDataCells(filterVehicules)
-    },[]);
+    let { dataCells } = useContext( DataCellsContext )
+    let { dataVehiculesCells } = useContext(DataCellsContext)
+
     return (
         <section>
             <SectionHeader subtitle={"General Information"} />
@@ -36,7 +22,7 @@ import {
      
             <SectionHeader subtitle={"Vehicles"} />
             <div>
-                {console.log(filterVehicules)}
+                {console.log(dataVehiculesCells)}
                 { dataVehiculesCells.map (
                     (item) =>
                         <div key={item}>
