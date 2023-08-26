@@ -9,7 +9,7 @@ const Header = ({ className }) => {
    return (!user||user==="")
     ? ( 
         <header className={className}>        
-                  <TitleHeader title={"People"}/>
+                  <TitleHeader title={"People of Star Wars"}/>
         </header>
       )
     : ( 
