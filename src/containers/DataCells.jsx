@@ -1,14 +1,15 @@
 import { useContext } from "react";
+import { styled } from "styled-components"
 import { DataCellsContext } from "../contexts/DataCellsContext";
 import { DataCell } from "../blocks/DataCell";
 import { SectionHeader } from "../blocks/SectionHeader";
 
- export const DataCells = () => {
+ const DataCells = ({ className }) => {
 
     let { dataCells, dataVehiculesCells, user} = useContext( DataCellsContext )
     if(user!==""){
         return (
-            <section>
+            <section className={className}>
                 <SectionHeader subtitle={"General Information"} />
                 <div key={dataCells.name}>
                     <DataCell characteristic={"Eye Color"} value={dataCells.eye_color}/>
@@ -34,3 +35,10 @@ import { SectionHeader } from "../blocks/SectionHeader";
     }
 
 };
+
+export default styled(DataCells)`
+ 
+  @media (min-width: 1024px) {
+    margin: 0rem 10rem; 
+  } 
+`;
