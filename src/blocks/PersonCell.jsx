@@ -29,7 +29,7 @@ export const PersonCell = ({name, gender}) => {
                     {name}
                 </SubtitleDefault>
                 <TextLowEmphasis>
-                    {gender}
+                    {(gender!=="n/a")?"Human":"Droid"}
                 </TextLowEmphasis>
             </div>
             <div>
