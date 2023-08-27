@@ -29,4 +29,9 @@ export default styled(Header)`
     display: flex;
     flex-direction: row;  
     gap: 2rem;
+    @media (min-width: 1024px) {
+      svg{
+        display: none;
+      }   
+    }
 `;

@@ -9,8 +9,8 @@ const SubtitleContainer = styled.div`
     justify-content: center;
 `
 export const NoticeCell = () => {
-    let { noticeCell } = useContext( DataCellsContext )
-    if( noticeCell === true) {
+    let { noticeCell, user } = useContext( DataCellsContext )
+    if( noticeCell === true && user==="") {
     return ( 
       <SubtitleContainer>
             <SubtitleHighEmphasis>

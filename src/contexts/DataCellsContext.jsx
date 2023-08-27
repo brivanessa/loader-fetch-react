@@ -27,8 +27,11 @@ export const DataCellsProvider = ({ children }) => {
         console.log(dataVehiculesCells)
         // Hacer fetch
         fetchApi()
-        .then(answer =>  setPersonCells(peopleAll(answer.results)))
-
+        .then(answer =>  {
+            if(answer){
+                setPersonCells(peopleAll(answer.results))
+            }
+        })
         async function fetchApi(){
             try {
                 setLoadingCell(true);
@@ -36,9 +39,11 @@ export const DataCellsProvider = ({ children }) => {
                 setLoadingCell(false);
                 return await response.json();
             } catch(error){
-                return setNoticeCell(true)
+                console.log(error)
+                setNoticeCell(true)
             }
         }
+
         fetchApi();
          setDataCells(filterDataByName(personCells, user ));
          setDataVehiculesCells( filterDataByName(personCells, user, "yes"));
