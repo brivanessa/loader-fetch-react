@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import mockApi from "../helpers/mockApi.js";
+// import mockApi from "../helpers/mockApi.js";
 
 import {
     peopleAll,
@@ -11,40 +11,44 @@ export const DataCellsContext = createContext({});
 
 export const DataCellsProvider = ({ children }) => {
 
-    // const [data, setData] = useState(mockApi.results);
-    const [data, setData] = useState([]);
+    const [loadingCell, setLoadingCell] = useState(false);
+    const [noticeCell, setNoticeCell] = useState(false);
+
     const [user, setUser] = useState("");
     const [page, setPage] = useState(1);
     const [dataCells, setDataCells] = useState([]);
     const [dataVehiculesCells, setDataVehiculesCells] = useState([]);
     const [personCells, setPersonCells] = useState([]);
 
-    const allPeople = peopleAll(data);
-    const filterData =  filterDataByName(allPeople, user )
-    const filterVehicules =  filterDataByName(allPeople, user, "yes")
-
     useEffect(()=> {
-        setPage(2)
-        // setData(mockApi.results)
-        setDataCells(filterData);
-        setDataVehiculesCells(filterVehicules);
-        setPersonCells(allPeople);
-
+        setPage(2);
+        console.log(personCells)
+        console.log(dataCells)
+        console.log(dataVehiculesCells)
         // Hacer fetch
-        fetchApi().then(answer => setData(answer.results))
-       
+        fetchApi()
+        .then(answer =>  setPersonCells(peopleAll(answer.results)))
+
         async function fetchApi(){
-            let response = await fetch(`https://swapi.dev/api/people/?page=1`)
-            return await response.json();
+            try {
+                setLoadingCell(true);
+                const response = await fetch(`https://swapi.dev/api/people/?page=1`)
+                setLoadingCell(false);
+                return await response.json();
+            } catch(error){
+                return setNoticeCell(true)
+            }
         }
+        fetchApi();
+         setDataCells(filterDataByName(personCells, user ));
+         setDataVehiculesCells( filterDataByName(personCells, user, "yes"));
 
-   },[data]);
-
-    return (
-        <DataCellsContext.Provider
-         value={{ user:user, dataCells:dataCells, dataVehiculesCells:dataVehiculesCells, personCells:personCells, setUser:setUser }}
-        >
-            {children}
-        </DataCellsContext.Provider>
-    )
+        },[user]);
+        return (
+            <DataCellsContext.Provider
+            value={{ user:user,  setUser:setUser, personCells:personCells, dataCells:dataCells, dataVehiculesCells:dataVehiculesCells,  loadingCell:loadingCell, noticeCell:noticeCell}}
+            >
+                {children}
+            </DataCellsContext.Provider>
+        )
 };

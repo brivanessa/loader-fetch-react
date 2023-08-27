@@ -32,5 +32,8 @@ export function peopleAll(datos) {
     } else {
       return (data.filter ((item) => (item.name === name)))[0].vehicles;
     }
-    
+  }
+
+  export function loaderState(data) {
+  return (data===[]);
   }

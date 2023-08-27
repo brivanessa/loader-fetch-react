@@ -1,7 +1,8 @@
 import { styled } from "styled-components"
 import { SubtitleLowEmphasis } from "../elements/Titles"
 import { Loader } from "../elements/Loader"
-
+import { useContext } from "react";
+import { DataCellsContext } from "../contexts/DataCellsContext";
 
 const LoadingCellContainer = styled.div`
     padding: 1.6rem;
@@ -12,6 +13,8 @@ const LoadingCellContainer = styled.div`
     gap:0.8rem;
 `
 export const LoadingCell = () => {
+    let { loadingCell, user } = useContext( DataCellsContext )
+    if( loadingCell === true && user==="") {
     return ( 
       <LoadingCellContainer>
             <Loader></Loader>
@@ -21,6 +24,5 @@ export const LoadingCell = () => {
 
       </LoadingCellContainer>
     );
-};
-
+}};
 

@@ -8,7 +8,7 @@ import { PersonCells } from "./PersonCells"
 const Body = ({ className }) => {
     return ( 
       <section className={className}>
-          <LoadingCell></LoadingCell>
+          <LoadingCell/>
           <NoticeCell/>
           <PersonCells/>
           <DataCells/>
