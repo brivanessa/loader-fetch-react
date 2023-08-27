@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 const Header = ({ className }) => {
   let { user, setUser } = useContext( DataCellsContext );
-   return (!user||user==="")
+   return (user==="")
     ? ( 
         <header className={className}>        
                   <TitleHeader title={"People of Star Wars"}/>
@@ -14,7 +14,8 @@ const Header = ({ className }) => {
       )
     : ( 
         <header className={className}>
-                  <div onClick={ (e) =>{ return setUser("")}}>
+                  <div onClick={ (e) =>{ 
+                    return setUser("")}}>
                     <IconBack />           
                   </div>          
                   <TitleHeader title={user}/>
@@ -30,6 +31,9 @@ export default styled(Header)`
     flex-direction: row;  
     gap: 2rem;
     @media (min-width: 1024px) {
+      h1 {
+        text-align: left;
+      }
       svg{
         display: none;
       }   

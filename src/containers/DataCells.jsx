@@ -39,6 +39,8 @@ import { SectionHeader } from "../blocks/SectionHeader";
 export default styled(DataCells)`
  
   @media (min-width: 1024px) {
-    margin: 0rem 10rem; 
+    padding: 0rem 10rem; 
+    // border-left: 0.09rem solid var(--light)
+
   } 
 `;

@@ -22,9 +22,6 @@ export const DataCellsProvider = ({ children }) => {
 
     useEffect(()=> {
         setPage(2);
-        console.log(personCells)
-        console.log(dataCells)
-        console.log(dataVehiculesCells)
         // Hacer fetch
         fetchApi()
         .then(answer =>  {

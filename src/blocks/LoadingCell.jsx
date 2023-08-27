@@ -13,8 +13,8 @@ const LoadingCellContainer = styled.div`
     gap:0.8rem;
 `
 export const LoadingCell = () => {
-    let { loadingCell, user,noticeCell } = useContext( DataCellsContext )
-    if( loadingCell === true && user==="" && noticeCell===false) {
+    let { loadingCell } = useContext( DataCellsContext )
+    if(  (loadingCell === true )  ) {
     return ( 
       <LoadingCellContainer>
             <Loader></Loader>
