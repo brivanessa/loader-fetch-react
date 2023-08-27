@@ -38,11 +38,11 @@ export const DataCellsProvider = ({ children }) => {
             return await response.json();
         }
 
-   },[user, setUser]);
+   },[data]);
 
     return (
         <DataCellsContext.Provider
-         value={ { user:user, dataCells:dataCells, dataVehiculesCells:dataVehiculesCells, personCells:personCells, setUser:setUser } }
+         value={{ user:user, dataCells:dataCells, dataVehiculesCells:dataVehiculesCells, personCells:personCells, setUser:setUser }}
         >
             {children}
         </DataCellsContext.Provider>
