@@ -7,16 +7,15 @@ import { DataCellsContext } from "../contexts/DataCellsContext";
 import { useContext } from "react";
 
 const DataSection = styled.div`
-    // height:100%;
-
+    padding-top: 5.7rem;
     @media (min-width: 1024px) {
+        
         display: grid;
         grid-template-columns: 1fr 2fr;
 
     }  
 `
 const DataPeople = styled.div`
-        height:100%;
         display: none;
         @media (min-width: 1024px) {
             display: block;

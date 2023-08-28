@@ -15,7 +15,8 @@ import { PersonCell } from "../blocks/PersonCell";
                              <PersonCell name={data.name} gender={data.gender}/>
                          </div> 
                         )
-                }          
+                }  
+            
             </div>
         )
 
